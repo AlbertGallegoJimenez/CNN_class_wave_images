@@ -19,7 +19,9 @@ Due to the fact that the source of the wave Hs database is from numerical modell
 In the <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/data%20pre-processing>data pre-processing</a> folder you can find the MATLAB script and some plots developed for wave calibration.
 
 #### <ins>wave images data</ins>  
-Here, you will find the images used to train and test the model. The images have been edited in order to "help" the model for the classification, again, in the <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/data%20pre-processing>data pre-processing</a> folder you can find the notebook developed.
+Here, you will find the images used to train and test the model. The images have been edited in order to "help" the model for the classification, again, in the <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/data%20pre-processing>data pre-processing</a> folder you can find the notebook developed.  
+
+The source of the original images is from the <a href=https://coo.icm.csic.es/service/video-monitoring>Video Monitoring System of Castelldefels beach</a> managed by Coastal Morphodynamics (UPC) and Coastal Ocean Observatory (ICM-CSIC).
 
 ### <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks>scripts and notebooks folder</a>
 Besides the data pre-processing folder explained before, here, you will find the notebooks developed as follows:  
@@ -29,8 +31,8 @@ Besides the data pre-processing folder explained before, here, you will find the
 
 These notebooks are developed for both <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/mutliclass%20approach>multiclass</a> and <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/binary%20approach>binary</a> approach.
 
-
-
+## Results
+The following confusion matrices show the results obtained from the test set with the multiclass and binary approach.
 
 
 
