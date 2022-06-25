@@ -1,0 +1,244 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>script_for_validation_calibration</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-06-25"><meta name="DC.source" content="script_for_validation_calibration.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">=== Script for Validation-Calibration of wave data ===</a></li><li><a href="#3">0- Load the data</a></li><li><a href="#4">1- Clip the SIMAR data by the temporal extent of the buoy data</a></li><li><a href="#5">2- Fit the SIMAR data and Buoy data with a Linear Regression Model</a></li><li><a href="#6">3- Plots:</a></li><li><a href="#7">3a- Plot Bcn Hs Data</a></li><li><a href="#8">3b- Plot Castelldefels Hs Data</a></li><li><a href="#9">4- Save the calibrated wave data</a></li></ul></div><pre class="codeinput">clear <span class="string">all</span>, close <span class="string">all</span>, clc
+<span class="comment">% Author: Albert Gallego Jim&eacute;nez</span>
+<span class="comment">% Date: 25/06/2022</span>
+</pre><h2 id="2">=== Script for Validation-Calibration of wave data ===</h2><pre class="codeinput"><span class="comment">% This script validates and calibrates the wave height data (Hs) generated by numerical</span>
+<span class="comment">% modelling (hindcast) named SIMAR, by using instrumental data (buoy). Our</span>
+<span class="comment">% study area is in Castelldefels and our validation-calibration site is in</span>
+<span class="comment">% Barcelona's Port, approx 15 km separated.</span>
+<span class="comment">% Both SIMAR and buoy data are publicly provided by Puertos del Estado (https://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx)</span>
+<span class="comment">% Summarising:</span>
+<span class="comment">% - "Castelldefels": study area of the project.</span>
+<span class="comment">% - "Barcelona": location where the validation take place.</span>
+<span class="comment">% - "SIMAR": Wave data from numerical model that needs to be</span>
+<span class="comment">% validated-calibrated (available in Barcelona and Castelldefels).</span>
+<span class="comment">% - "Buoy": Instrumental data used to validate-calibrate the numerical</span>
+<span class="comment">% modelled data (only available in Barcelona).</span>
+</pre><h2 id="3">0- Load the data</h2><pre class="codeinput"><span class="comment">%SIMAR data in Castelldefels</span>
+waves_SIMAR_cdf = readtable(<span class="string">'D:\Capstone Project\Wave data\waves_simar_cdf.csv'</span>);
+<span class="comment">%SIMAR data in Barcelona (at the same coordinates where the buoy is)</span>
+waves_SIMAR_bcn_buoy = readtable(<span class="string">'D:\Capstone Project\Wave data\waves_simar_bcn_buoy.csv'</span>);
+<span class="comment">% Buoy data in Barcelona</span>
+waves_buoy_bcn = readtable(<span class="string">'D:\Capstone Project\Wave data\waves_buoy_bcn.csv'</span>);
+</pre><h2 id="4">1- Clip the SIMAR data by the temporal extent of the buoy data</h2><pre class="codeinput">timebuoy = datetime(table2array(waves_buoy_bcn(:,1:6)));
+timeSIMAR = datetime(table2array(waves_SIMAR_bcn_buoy(:,1:6)));
+<span class="comment">%Find the indexes with the common dates in both data sources.</span>
+[~,idbuoy,idSIMAR] = intersect(timebuoy,timeSIMAR);
+<span class="comment">%Extract the Hs wave parameter that needs to be validated-calibrated</span>
+hsSIMAR_idSIMAR = table2array(waves_SIMAR_bcn_buoy(idSIMAR,<span class="string">'Hs'</span>));
+hsBuoy_idbuoy = table2array(waves_buoy_bcn(idbuoy,<span class="string">'Hs'</span>));
+</pre><h2 id="5">2- Fit the SIMAR data and Buoy data with a Linear Regression Model</h2><pre class="codeinput">mdl_lr = fitlm(hsSIMAR_idSIMAR,hsBuoy_idbuoy);
+<span class="comment">%Here calibrates the SIMAR data in Castelldefels with above model.</span>
+hs_cdf_cal = predict(mdl_lr,table2array(waves_SIMAR_cdf(:,<span class="string">'Hs'</span>)));
+<span class="comment">%Extract some statistics</span>
+[r,p] = corrcoef(hsBuoy_idbuoy,hsSIMAR_idSIMAR);
+<span class="keyword">if</span> p(2)&lt;0.05
+    str_p = <span class="string">"p-value&lt;0.05"</span>;
+<span class="keyword">else</span>
+    str_p = round(p(2),2);
+<span class="keyword">end</span>
+str_stats = {[<span class="string">"r="</span>+num2str(round(r(2),3))],str_p,[<span class="string">"RMSE="</span>+num2str(round(mdl_lr.RMSE,3))]};
+</pre><h2 id="6">3- Plots:</h2><h2 id="7">3a- Plot Bcn Hs Data</h2><pre class="codeinput">figure(<span class="string">'Name'</span>,<span class="string">'Scatter plot - Hs Buoy vs Hs SIMAR'</span>)
+scatter_hs = scatter(hsBuoy_idbuoy,hsSIMAR_idSIMAR,<span class="string">'k'</span>,<span class="string">'filled'</span>);
+alpha(scatter_hs,0.2)
+hold <span class="string">on</span>
+plot(linspace(0,max(hsBuoy_idbuoy),500),linspace(0,max(hsBuoy_idbuoy),500),<span class="string">'--r'</span>,<span class="string">'LineWidth'</span>,2)
+xlim([0 max(hsSIMAR_idSIMAR)]);ylim([0 max(hsSIMAR_idSIMAR)])
+grid <span class="string">on</span>; box <span class="string">on</span>
+xlabel(<span class="string">'Hs Buoy (m)'</span>);ylabel(<span class="string">'Hs SIMAR (m)'</span>)
+title(<span class="string">'Barcelona Hs Climate Validation'</span>)
+
+figure(<span class="string">'Name'</span>,<span class="string">'Fit with Linear Regression Model'</span>)
+scatter_hs = scatter(hsBuoy_idbuoy,hsSIMAR_idSIMAR,<span class="string">'k'</span>,<span class="string">'filled'</span>);
+alpha(scatter_hs,0.2)
+hold <span class="string">on</span>
+plot(linspace(0,max(hsBuoy_idbuoy),500),linspace(0,max(hsBuoy_idbuoy),500),<span class="string">'--r'</span>,<span class="string">'LineWidth'</span>,2)
+hold <span class="string">on</span>
+lr = plot(linspace(0,max(hsSIMAR_idSIMAR),100)',predict(mdl_lr,linspace(0,max(hsSIMAR_idSIMAR),100)'),<span class="string">'-y'</span>,<span class="string">'LineWidth'</span>,2);
+xlim([0 max(hsSIMAR_idSIMAR)]);ylim([0 max(hsSIMAR_idSIMAR)])
+grid <span class="string">on</span>; box <span class="string">on</span>
+text(0.5,max(hsSIMAR_idSIMAR)-1,str_stats,<span class="string">'HorizontalAlignment'</span>,<span class="string">'left'</span>,<span class="string">'FontSize'</span>,12)
+xlabel(<span class="string">'Hs Buoy (m)'</span>);ylabel(<span class="string">'Hs SIMAR (m)'</span>)
+legend(lr,<span class="string">'Linear Regression'</span>,<span class="string">'Location'</span>,<span class="string">'best'</span>)
+title(<span class="string">'Barcelona Hs Climate Validation'</span>)
+</pre><img vspace="5" hspace="5" src="script_for_validation_calibration_01.png" alt=""> <img vspace="5" hspace="5" src="script_for_validation_calibration_02.png" alt=""> <h2 id="8">3b- Plot Castelldefels Hs Data</h2><pre class="codeinput">timeSIMAR_cdf = datetime(table2array(waves_SIMAR_cdf(:,1:6)));
+figure(<span class="string">'Name'</span>,<span class="string">'Time series - Hs SIMAR Calibrated and Hs SIMAR NO Calibrated'</span>)
+plot(timeSIMAR_cdf,table2array(waves_SIMAR_cdf(:,<span class="string">'Hs'</span>)),<span class="string">'.k'</span>)
+hold <span class="string">on</span>
+plot(timeSIMAR_cdf,hs_cdf_cal,<span class="string">'.b'</span>)
+axis <span class="string">tight</span>
+grid <span class="string">on</span>
+xlabel(<span class="string">'Time'</span>);ylabel(<span class="string">'Hs (m)'</span>)
+legend(<span class="string">'Hs NO Calibrated'</span>,<span class="string">'Hs Calibrated'</span>)
+title(<span class="string">'Castelldefels Hs Climate Calibration'</span>)
+</pre><img vspace="5" hspace="5" src="script_for_validation_calibration_03.png" alt=""> <h2 id="9">4- Save the calibrated wave data</h2><p>waves_SIMAR_cdf(:,'Hs') = array2table(hs_cdf_cal); writetable(waves_SIMAR_cdf,'D:\Capstone Project\waves_simar_cdf_cal.csv','Delimiter',';');</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all, close all, clc
+% Author: Albert Gallego Jiménez
+% Date: 25/06/2022
+
+%% === Script for Validation-Calibration of wave data ===
+
+% This script validates and calibrates the wave height data (Hs) generated by numerical
+% modelling (hindcast) named SIMAR, by using instrumental data (buoy). Our
+% study area is in Castelldefels and our validation-calibration site is in
+% Barcelona's Port, approx 15 km separated.
+% Both SIMAR and buoy data are publicly provided by Puertos del Estado (https://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx)
+% Summarising:
+% - "Castelldefels": study area of the project.
+% - "Barcelona": location where the validation take place.
+% - "SIMAR": Wave data from numerical model that needs to be
+% validated-calibrated (available in Barcelona and Castelldefels).
+% - "Buoy": Instrumental data used to validate-calibrate the numerical
+% modelled data (only available in Barcelona).
+
+%% 0- Load the data
+%SIMAR data in Castelldefels
+waves_SIMAR_cdf = readtable('D:\Capstone Project\Wave data\waves_simar_cdf.csv');
+%SIMAR data in Barcelona (at the same coordinates where the buoy is)
+waves_SIMAR_bcn_buoy = readtable('D:\Capstone Project\Wave data\waves_simar_bcn_buoy.csv');
+% Buoy data in Barcelona
+waves_buoy_bcn = readtable('D:\Capstone Project\Wave data\waves_buoy_bcn.csv');
+
+%% 1- Clip the SIMAR data by the temporal extent of the buoy data
+timebuoy = datetime(table2array(waves_buoy_bcn(:,1:6)));
+timeSIMAR = datetime(table2array(waves_SIMAR_bcn_buoy(:,1:6)));
+%Find the indexes with the common dates in both data sources.
+[~,idbuoy,idSIMAR] = intersect(timebuoy,timeSIMAR);
+%Extract the Hs wave parameter that needs to be validated-calibrated
+hsSIMAR_idSIMAR = table2array(waves_SIMAR_bcn_buoy(idSIMAR,'Hs'));
+hsBuoy_idbuoy = table2array(waves_buoy_bcn(idbuoy,'Hs'));
+
+%% 2- Fit the SIMAR data and Buoy data with a Linear Regression Model
+mdl_lr = fitlm(hsSIMAR_idSIMAR,hsBuoy_idbuoy);
+%Here calibrates the SIMAR data in Castelldefels with above model.
+hs_cdf_cal = predict(mdl_lr,table2array(waves_SIMAR_cdf(:,'Hs')));
+%Extract some statistics
+[r,p] = corrcoef(hsBuoy_idbuoy,hsSIMAR_idSIMAR);
+if p(2)<0.05
+    str_p = "p-value<0.05";
+else
+    str_p = round(p(2),2);
+end
+str_stats = {["r="+num2str(round(r(2),3))],str_p,["RMSE="+num2str(round(mdl_lr.RMSE,3))]};
+
+%% 3- Plots:
+%% 3a- Plot Bcn Hs Data
+figure('Name','Scatter plot - Hs Buoy vs Hs SIMAR')
+scatter_hs = scatter(hsBuoy_idbuoy,hsSIMAR_idSIMAR,'k','filled');
+alpha(scatter_hs,0.2)
+hold on
+plot(linspace(0,max(hsBuoy_idbuoy),500),linspace(0,max(hsBuoy_idbuoy),500),'REPLACE_WITH_DASH_DASHr','LineWidth',2)
+xlim([0 max(hsSIMAR_idSIMAR)]);ylim([0 max(hsSIMAR_idSIMAR)])
+grid on; box on
+xlabel('Hs Buoy (m)');ylabel('Hs SIMAR (m)')
+title('Barcelona Hs Climate Validation')
+
+figure('Name','Fit with Linear Regression Model')
+scatter_hs = scatter(hsBuoy_idbuoy,hsSIMAR_idSIMAR,'k','filled');
+alpha(scatter_hs,0.2)
+hold on
+plot(linspace(0,max(hsBuoy_idbuoy),500),linspace(0,max(hsBuoy_idbuoy),500),'REPLACE_WITH_DASH_DASHr','LineWidth',2)
+hold on
+lr = plot(linspace(0,max(hsSIMAR_idSIMAR),100)',predict(mdl_lr,linspace(0,max(hsSIMAR_idSIMAR),100)'),'-y','LineWidth',2);
+xlim([0 max(hsSIMAR_idSIMAR)]);ylim([0 max(hsSIMAR_idSIMAR)])
+grid on; box on
+text(0.5,max(hsSIMAR_idSIMAR)-1,str_stats,'HorizontalAlignment','left','FontSize',12)
+xlabel('Hs Buoy (m)');ylabel('Hs SIMAR (m)')
+legend(lr,'Linear Regression','Location','best')
+title('Barcelona Hs Climate Validation')
+
+%% 3b- Plot Castelldefels Hs Data
+timeSIMAR_cdf = datetime(table2array(waves_SIMAR_cdf(:,1:6)));
+figure('Name','Time series - Hs SIMAR Calibrated and Hs SIMAR NO Calibrated')
+plot(timeSIMAR_cdf,table2array(waves_SIMAR_cdf(:,'Hs')),'.k')
+hold on
+plot(timeSIMAR_cdf,hs_cdf_cal,'.b')
+axis tight
+grid on
+xlabel('Time');ylabel('Hs (m)')
+legend('Hs NO Calibrated','Hs Calibrated')
+title('Castelldefels Hs Climate Calibration')
+
+%% 4- Save the calibrated wave data
+% waves_SIMAR_cdf(:,'Hs') = array2table(hs_cdf_cal);
+% writetable(waves_SIMAR_cdf,'D:\Capstone Project\waves_simar_cdf_cal.csv','Delimiter',';');
+
+    
+    
+    
+    
+    
+    
+    
+    
+##### SOURCE END #####
+--></body></html>
