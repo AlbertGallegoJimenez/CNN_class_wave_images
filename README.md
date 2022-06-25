@@ -32,7 +32,7 @@ Besides the data pre-processing folder explained before, here, you will find the
 These notebooks are developed for both <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/mutliclass%20approach>multiclass</a> and <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/binary%20approach>binary</a> approach.
 
 ## Results
-The following confusion matrices show the results obtained from the test set with the multiclass and binary approach.
+The following confusion matrices show the results obtained from the **test set** with the multiclass and binary approach.
 
 | **Multiclass Approach** | **Binary Approach** |
 | :---: | :---: |
