@@ -34,6 +34,8 @@ These notebooks are developed for both <a href=https://github.com/AlbertGallegoJ
 ## Results
 The following confusion matrices show the results obtained from the test set with the multiclass and binary approach.
 
-
-
+| **Multiclass Approach** | **Binary Approach** |
+| :---: | :---: |
+| ![cf_m_multiclass!](https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/blob/main/scripts%20and%20notebooks/mutliclass%20approach/test_accuracy_multiclass_approach.PNG) | ![cf_m_binary!](https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/blob/main/scripts%20and%20notebooks/binary%20approach/test_accuracy_binary_approach.PNG) |
+| Test accuracy = 0.627  | Test accuracy = 0.863  |
 
