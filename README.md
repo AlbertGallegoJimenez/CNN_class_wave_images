@@ -5,8 +5,8 @@ This repository is framed in the final project of "Introduction to Data Science 
 The main objective of this project is to develop a **Convolutional Neural Network** model that **classifies sea waves images** into different categories according to their energy (by using the significant wave height, Hs, as a proxy of the wave energy).  
 
 This classification problem has been tackled in two ways:
-+ As a **multiclass** problem, classifying the waves images into 4 categories: Calm, Low, Moderate and High energy waves.
-+ As a **binary** problem, classifying the waves images into 2 categories: Low and High energy waves.
++ As a **multiclass** problem, classifying the wave images into 4 categories: Calm, Low, Moderate and High energy waves.
++ As a **binary** problem, classifying the wave images into 2 categories: Low and High energy waves.
 
 ## Contents of the repository
 This repository is organised in two folders:  
