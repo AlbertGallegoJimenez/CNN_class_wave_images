@@ -24,7 +24,7 @@ Here, you will find the images used to train and test the model. The images have
 The source of the original images is from the <a href=https://coo.icm.csic.es/service/video-monitoring>Video Monitoring System of Castelldefels beach</a> managed by Coastal Morphodynamics (UPC) and Coastal Ocean Observatory (ICM-CSIC).
 
 ### <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks>scripts and notebooks folder</a>
-Besides the data pre-processing folder explained before, here, you will find the notebooks developed as follows:  
+Besides the data pre-processing folder mentioned before, here, you will find the notebooks developed as follows:  
 + 1- Preparing the data for the model.
 + 2- Training the model.
 + 3- Check the results of the model.
