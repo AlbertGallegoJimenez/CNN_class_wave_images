@@ -12,10 +12,11 @@ This classification problem has been tackled in two ways:
 This repository is organised in two folders:  
 
 ### <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/data>data folder</a>
+It is important to note that the two datasets in this folder are already pre-processed. The data found here can already be used directly for the developed model.
 #### <ins>wave height data</ins>  
 Here, you will find the matrix with the timeseries of the waves in CSV format. This file contains the time, the significant wave height (Hs, in meters), and other wave parameters such as the peak wave period (Tp, in seconds), and the wave direction (Dir, in degrees).  
 
-Due to the fact that the source of the wave Hs database is from numerical modelling (SIMAR dataset from <a href=https://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx>Puertos del Estado</a>), a pre-process of validation and calibration with instrumental data is needed.
+Due to the fact that the source of the wave Hs database is from numerical modelling (SIMAR dataset from <a href=https://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx>Puertos del Estado</a>), a pre-process of validation and calibration with instrumental data were needed.
 In the <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/data%20pre-processing>data pre-processing</a> folder you can find the MATLAB script and some plots developed for wave calibration.
 
 #### <ins>wave images data</ins>  
@@ -32,7 +33,7 @@ Besides the data pre-processing folder mentioned before, here, you will find the
 These notebooks are developed for both <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/mutliclass%20approach>multiclass</a> and <a href=https://github.com/AlbertGallegoJimenez/CNN_class_wave_images/tree/main/scripts%20and%20notebooks/binary%20approach>binary</a> approach.
 
 ## Results
-The following confusion matrices show the results obtained from the **test set** with the multiclass and binary approach.
+The following confusion matrices show the results obtained from the **test set** for both multiclass and binary approach.
 
 | **Multiclass Approach** | **Binary Approach** |
 | :---: | :---: |
