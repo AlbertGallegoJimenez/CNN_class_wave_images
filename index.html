@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="es"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Wave images classification using Convolutional Neural Network (CNN)​, Contents, INTRODUCTION, Objectives, Data description, Image pre-processing, Data description, Wave Hs pre-processing, METHODOLOGY, RESULTS">
+    <meta name="description" content="">
+    <title>Capstone Project - AGJimenez</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Capstone-Project---AGJimenez.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.13.4, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/Logotip_UB.svg"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Capstone Project - AGJimenez">
+    <meta property="og:type" content="website">
+  </head>
+  <body data-home-page="Capstone-Project---AGJimenez.html" data-home-page-title="Capstone Project - AGJimenez" class="u-body u-xl-mode"><header class="u-clearfix u-header u-header" id="sec-6bdd"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1176" data-image-height="354">
+          <img src="images/Logotip_UB.svg" class="u-logo-image u-logo-image-1">
+        </a>
+      </div></header>
+    <section class="u-align-left u-clearfix u-image u-section-1" id="carousel_c6da" data-image-width="150" data-image-height="73">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-body-alt-color u-text-1">This is the final project of "Introduction to Data Science and Machine Learning" postgraduate degree by Universitat de Barcelona (2021-2022 course).</p>
+        <h2 class="u-custom-font u-font-montserrat u-text u-text-2">Wave images classification using Convolutional Neural Network (CNN) </h2>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-10 u-section-2" id="carousel_53c2">
+      <div class="u-expanded-width u-shape u-shape-rectangle u-white u-shape-1"></div>
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div class="u-container-style u-list-item u-palette-5-base u-radius-50 u-repeater-item u-shape-round u-list-item-1">
+            <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000"><img src="images/7870805.png" alt=""></span>
+              <h5 class="u-align-center u-text u-text-default u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">INTRODUCTION</h5>
+              <p class="u-text u-text-default u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1000">Objectives of the project<br>Data description
+              </p>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-list-item u-palette-5-base u-radius-50 u-repeater-item u-shape-round u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-icon-2" data-animation-name="customAnimationIn" data-animation-duration="1000"><img src="images/2519358.png" alt=""></span>
+              <h5 class="u-align-center u-text u-text-default u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1000">METHODOLOGY</h5>
+              <p class="u-text u-text-default u-text-4" data-animation-name="customAnimationIn" data-animation-duration="1000">Approaches considered<br>CNN model specifications
+              </p>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-list-item u-palette-5-base u-radius-50 u-repeater-item u-shape-round u-list-item-3">
+            <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-icon-3" data-animation-name="customAnimationIn" data-animation-duration="1000"><img src="images/944053.png" alt=""></span>
+              <h5 class="u-align-center u-text u-text-default u-text-5" data-animation-name="customAnimationIn" data-animation-duration="1000">RESULTS</h5>
+              <p class="u-text u-text-default u-text-6" data-animation-name="customAnimationIn" data-animation-duration="1000">Main results achieved<br>
+              </p>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-list-item u-palette-5-base u-radius-50 u-repeater-item u-shape-round u-list-item-4">
+            <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-icon-4" data-animation-name="customAnimationIn" data-animation-duration="1000"><img src="images/839860.png" alt=""></span>
+              <h5 class="u-align-center u-text u-text-default u-text-7" data-animation-name="customAnimationIn" data-animation-duration="1000">CONCLUSIONS</h5>
+              <p class="u-text u-text-default u-text-8" data-animation-name="customAnimationIn" data-animation-duration="1000">Conclusions of the project</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="u-text u-text-default u-text-9">Contents</h2>
+    </section>
+    <section class="u-clearfix u-palette-1-light-3 u-section-3" id="carousel_df44">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-0 u-layout-wrap u-palette-1-light-3 u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-layout-cell u-size-60 u-white u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">INTRODUCTION</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-section-4" id="carousel_55f3">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-custom-font u-font-montserrat u-text u-text-1">Objectives</h2>
+        <p class="u-text u-text-2">
+          <span style="font-size: 1.5rem;"> The main objective
+of this project is to develop a <span style="font-weight: 700;">Convolutional Neural Network</span> model that <span style="font-weight: 700;">classifies sea wave images</span> into different categories <span style="font-weight: 700;">according to their energy</span> (by using the significant wave height, Hs, as a proxy of the wave energy).
+          </span>
+          <br>
+          <br>
+          <span style="font-size: 1.5rem;">This classification
+problem has been tackled in two ways:</span>
+          <br>
+        </p>
+        <img class="u-image u-image-round u-radius-10 u-image-1" src="images/53942420-0.png" alt="" data-image-width="1375" data-image-height="1000">
+        <ul class="u-text u-text-3">
+          <li>
+            <span style="font-size: 1.5rem;"> As a <span style="font-weight: 700;">multiclass problem</span>,
+classifying the waves images into 4 categories: <span style="font-weight: 700;">Calm, Low, Moderate and High <span style="font-weight: 400;">energy waves</span>
+              </span>.
+            </span>
+          </li>
+          <li>
+            <span style="font-size: 1.5rem;">As a <span style="font-weight: 700;">binary problem</span>,
+classifying the wave images into 2 categories: <span style="font-weight: 700;">Low and High <span style="font-weight: 400;">energy waves</span>
+              </span>.
+            </span>
+          </li>
+        </ul>
+        <img class="u-image u-image-default u-image-2" src="images/CNNArchitectureDiagram.jpg" alt="" data-image-width="1008" data-image-height="529" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="1000">
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-grey-5 u-section-5" id="carousel_754e">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-custom-font u-font-montserrat u-text u-text-1">Data description</h2>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-2">Wave images dataset</h3>
+            <img class="u-image u-image-round u-radius-10 u-image-1" src="images/IMAG0156.jpg" alt="" data-image-width="2592" data-image-height="1552">
+            <p class="u-text u-text-3">The wave images dataset is from the <a href="https://coo.icm.csic.es/service/video-monitoring" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Video Monitoring System of Castelldefels beach</a>. The video-monitoring station is deployed at 32 m high in Castelldefels (Barcelona) about 20 km southwards of the Barcelona city. Images are taken hourly since April 2010 until nowadays.<br>
+              <br>This monitoring system is managed by Coastal Morphodynamics (UPC) and Coastal Ocean Observatory (ICM-CSIC) and its main purpose is to study the morphodynamics of the beach.
+            </p>
+            <p class="u-text u-text-4">Video-monitoring station</p>
+            <img class="u-image u-image-default u-image-2" src="images/screenshot_webpage_Castelldefels.jpeg" alt="" data-image-width="778" data-image-height="822">
+            <p class="u-text u-text-5">Website screenshot</p>
+            <p class="u-text u-text-6"> The time span of the images downloaded for the study is from <span style="font-weight: 700;">November 2011 to May 2022 </span>and does not have a homogeneous distribution.
+            </p>
+            <h2 class="u-text u-text-7">Image pre-processing</h2>
+            <div class="u-container-style u-group u-palette-1-light-3 u-group-2">
+              <div class="u-container-layout u-container-layout-2">
+                <ul class="u-custom-list u-text u-text-8">
+                  <li>
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-2fd3"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                    </div>
+                  </li>
+                  <li>Convert to grayscale.</li>
+                  <li>
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-2fd3"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                    </div>Correct the average brightness.
+                  </li>
+                  <li>
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-2fd3"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                    </div>Crop each image into 3 patches.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="u-align-center u-text u-text-9">Final image dataset of more than 13k images</p>
+            <div class="u-shape u-shape-svg u-text-black u-shape-1">
+              <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 160" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-d20d"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 160 160" x="0px" y="0px" id="svg-d20d" style="enable-background:new 0 0 160 160;"><path d="M156.8,31.9L128.2,3.3c-2.1-2.1-5.1-3.3-8.1-3.3H11.4C5.1,0,0,5.1,0,11.4v137.2c0,6.3,5.1,11.4,11.4,11.4h137.2
+	c6.3,0,11.4-5.1,11.4-11.4V40C160.1,37,158.9,34,156.8,31.9L156.8,31.9z M119.1,70H29V10h90.1V70z M85.4,22h22.5v36H85.4V22z"></path></svg>
+            </div>
+            <img class="u-image u-image-default u-image-3" src="images/original_images.jpeg" alt="" data-image-width="1280" data-image-height="960">
+            <img class="u-image u-image-default u-image-4" src="images/edited_images.jpeg" alt="" data-image-width="1063" data-image-height="318">
+            <div class="u-shape u-shape-svg u-text-black u-shape-2">
+              <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 100" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-7398"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 160 100" x="0px" y="0px" id="svg-7398" style="enable-background:new 0 0 160 100;"><g><path d="M109.2,99.9L160,50L109.2,0H75.6l38.7,38H0v24.2h114L75.6,100L109.2,99.9z"></path>
+</g></svg>
+            </div>
+            <p class="u-text u-text-10">Edited images (3 images 250x250)</p>
+            <p class="u-text u-text-11">Original images (1280x960)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-grey-5 u-section-6" id="sec-0d8f">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-custom-font u-font-montserrat u-text u-text-1">Data description</h2>
+        <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-2">Wave height timeseries dataset</h3>
+            <img class="u-image u-image-default u-image-1" src="images/waveform.png" alt="" data-image-width="477" data-image-height="260">
+            <p class="u-text u-text-3">What is the wave height?</p>
+            <p class="u-text u-text-4"> Wave height is&nbsp;<b>the vertical distance between the crest (peak) and the trough of a wave.</b>
+            </p>
+            <p class="u-align-justify u-text u-text-5">In the long term, the waves can be parametrised by the <span style="font-weight: 700;">significant wave height (Hs)</span> which is a variable that resumes&nbsp;the behaviour of individual waves in each hour.
+            </p>
+            <p class="u-align-justify u-text u-text-6">The Hs data comes from the SIMAR database which ​consists of time series of wind and wave parameters from numerical modelling.
+They are therefore simulated data and are not derived from direct measurements of nature. The SIMAR database is publicly available in the website of <a href="https://www.puertos.es/es-es/oceanografia/Paginas/portus.aspx" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Puertos del Estado</a>.<br>
+            </p>
+            <h2 class="u-text u-text-7">Wave Hs pre-processing</h2>
+            <p class="u-align-justify u-text u-text-8"> Due to the fact that the source of the wave Hs database is from numerical modelling, a pre-process of <span style="font-weight: 700;">validation </span>
+              <span style="font-weight: 700;">and calibration </span>
+              <span style="font-weight: 700;">with instrumental data is needed</span>
+              <span style="font-weight: 700;">.</span>
+              <br>
+              <br> The validation has been carried out by comparing data from the same SIMAR model at a location close to the buoy in the port of Barcelona (15 km separated approx.). These data have been fitted to a <span style="font-weight: 700;">linear regression model</span>.&nbsp;<br>
+              <br>This linear regression model was then used to calibrate the SIMAR model values in the study area.
+            </p>
+            <img class="u-image u-image-default u-image-2" src="images/Map_transp_background_lowres.png" alt="" data-image-width="1419" data-image-height="1181" data-animation-out="1">
+            <p class="u-text u-text-9">Study area map</p>
+            <img class="u-image u-image-default u-image-3" src="images/HsSIMARvsHsBuoy-BCNFitted.png" alt="" data-image-width="3500" data-image-height="2625">
+            <img class="u-image u-image-default u-image-4" src="images/HsSIMARCastelldefelsCalibrationComparison.png" alt="" data-image-width="1603" data-image-height="906">
+            <div class="u-shape u-shape-svg u-text-black u-shape-1">
+              <svg class="u-svg-link" preserveAspectRatio="none" viewBox="0 0 160 100" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-dfd1"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 160 100" x="0px" y="0px" id="svg-dfd1" style="enable-background:new 0 0 160 100;"><g><path d="M109.2,99.9L160,50L109.2,0H75.6l38.7,38H0v24.2h114L75.6,100L109.2,99.9z"></path>
+</g></svg>
+            </div>
+            <div class="u-border-2 u-border-grey-75 u-container-style u-grey-10 u-group u-group-2">
+              <div class="u-container-layout u-container-layout-2">
+                <p class="u-align-center u-text u-text-default u-text-10">STATISTICAL DESCRIPTION</p>
+                <img class="u-image u-image-default u-preserve-proportions u-image-5" src="images/mean_monthly_Hs.png" alt="" data-image-width="3500" data-image-height="2625">
+                <img class="u-image u-image-default u-preserve-proportions u-image-6" src="images/Rosa_Hs.png" alt="" data-image-width="6067" data-image-height="4530">
+                <p class="u-text u-text-11">Hs wave rose</p>
+                <p class="u-text u-text-12">Monthly averages</p>
+                <img class="u-image u-image-default u-preserve-proportions u-image-7" src="images/hs_PDF_CDF1.png" alt="" data-image-width="6574" data-image-height="2923">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-1-light-3 u-section-7" id="sec-dad4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-0 u-layout-wrap u-palette-1-light-3 u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-layout-cell u-size-60 u-white u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">METHODOLOGY</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-section-8" id="sec-8827">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-1"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-2"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-3"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-4"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-5"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-6"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-7"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-8"></div>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p class="u-align-center u-large-text u-text u-text-default u-text-variant u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">MULTICLASS APPROACH</p>
+                  <p class="u-align-center u-text u-text-default u-text-2">
+                    <span style="font-size: 1.5rem;">4 categories</span>
+                  </p>
+                  <div class="u-align-center u-table u-table-responsive u-table-1">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                      </colgroup>
+                      <thead class="u-align-center u-black u-table-header u-table-header-1">
+                        <tr style="height: 21px;">
+                          <th class="u-border-1 u-border-black u-table-cell">Calm</th>
+                          <th class="u-border-1 u-border-black u-table-cell">Low</th>
+                          <th class="u-border-1 u-border-black u-table-cell">Moderate</th>
+                          <th class="u-border-1 u-border-black u-table-cell">High</th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-align-center u-table-body">
+                        <tr style="height: 75px;">
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">Hs &lt;=0.5</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">&gt;0.5 Hs &lt;=1</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell"> &gt;1 Hs &lt;=1.5</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">Hs &gt;1.5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <img class="u-image u-image-default u-preserve-proportions u-image-1" src="images/multiclass_images_waves_examples.jpeg" alt="" data-image-width="1062" data-image-height="252">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <p class="u-align-center u-large-text u-text u-text-default u-text-variant u-text-3" data-animation-name="customAnimationIn" data-animation-duration="1000">BINARY APPROACH</p>
+                  <p class="u-align-center u-text u-text-default u-text-4">
+                    <span style="font-size: 1.5rem;">2 categories</span>
+                  </p>
+                  <div class="u-table u-table-responsive u-table-2">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="49.9%">
+                        <col width="50.1%">
+                      </colgroup>
+                      <thead class="u-align-center u-black u-table-header u-table-header-2">
+                        <tr style="height: 21px;">
+                          <th class="u-border-1 u-border-black u-table-cell">Low</th>
+                          <th class="u-border-1 u-border-black u-table-cell">High</th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-align-center u-table-body">
+                        <tr style="height: 75px;">
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">Hs &lt;=1</td>
+                          <td class="u-border-1 u-border-grey-30 u-table-cell">Hs &gt;1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <img class="u-image u-image-default u-preserve-proportions u-image-2" src="images/binary_images_waves_examples.jpeg" alt="" data-image-width="574" data-image-height="284">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="u-border-3 u-border-grey-dark-1 u-shape u-shape-top u-shape-1"></div>
+        <p class="u-align-left u-text u-text-default u-text-5">Data preparation for the model</p>
+        <ul class="u-align-left u-text u-text-default u-text-6">
+          <li>
+            <span style="font-weight: 700; font-size: 1.25rem;">
+              <span style="font-weight: 400;">Wave image normalisation</span>
+            </span>
+          </li>
+          <li>
+            <span style="font-size: 1.25rem;">Encoding categories (using One Hot Encoder)</span>
+          </li>
+        </ul><span class="u-file-icon u-icon u-icon-1"><img src="images/3179238.png" alt=""></span>
+        <p class="u-align-left u-text u-text-7">Train-validation-test split</p>
+        <h4 class="u-align-left u-text u-text-default u-text-8">80% Train<br>10% Validation<br>10% Test
+        </h4><span class="u-file-icon u-icon u-icon-2"><img src="images/3179247.png" alt=""></span>
+        <p class="u-align-left u-text u-text-default u-text-9">Define the model</p>
+        <p class="u-align-left u-text u-text-10"> Synthetic Minority Oversampling Technique, SMOTE</p>
+        <ul class="u-align-left u-text u-text-default u-text-11" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+          <li>
+            <span style="font-weight: 700; font-size: 1.25rem;">
+              <span style="font-weight: 400;">Adam optimizer</span>
+            </span>
+          </li>
+          <li>
+            <span style="font-size: 1.25rem;">Learning rate (0.001-0.0001)</span>
+          </li>
+          <li>
+            <span style="font-size: 1.25rem;">Metrics</span>
+          </li>
+        </ul>
+        <div class="u-rotation-parent u-rotation-parent-1"><span class="u-file-icon u-icon u-rotate-180 u-icon-3"><img src="images/2413446.png" alt=""></span>
+        </div><span class="u-file-icon u-icon u-icon-4"><img src="images/3179243.png" alt=""></span>
+        <div class="u-rotation-parent u-rotation-parent-2">
+          <div class="u-border-3 u-border-grey-dark-1 u-rotate-180 u-shape u-shape-top u-shape-2"></div>
+        </div>
+        <img class="u-image u-image-default u-preserve-proportions u-image-3" src="images/binary_model_architecture.jpeg" alt="" data-image-width="467" data-image-height="513">
+        <img class="u-image u-image-default u-preserve-proportions u-image-4" src="images/multiclass_model_architecture.jpeg" alt="" data-image-width="477" data-image-height="451">
+        <div class="u-border-3 u-border-grey-dark-1 u-shape u-shape-top u-shape-3"></div>
+        <p class="u-align-left u-text u-text-default u-text-12">Train the model</p>
+        <ul class="u-align-left u-text u-text-default u-text-13">
+          <li>
+            <span style="font-weight: 700; font-size: 1.25rem;"></span>
+            <span style="font-size: 1.25rem;">Nº epochs</span>
+          </li>
+          <li>
+            <span style="font-size: 1.25rem;">Batch size</span>
+          </li>
+        </ul><span class="u-file-icon u-icon u-icon-5"><img src="images/3179234.png" alt=""></span>
+        <p class="u-align-center u-text u-text-14">Check the evolution of the loss/accuracy over the epochs&nbsp;</p>
+        <p class="u-align-center u-text u-text-15">Comparing train/validation results</p><span class="u-file-icon u-icon u-icon-6"><img src="images/5152399.png" alt=""></span>
+        <p class="u-align-center u-text u-text-16">Evaluate the test set with the trained model</p>
+        <ul class="u-align-left u-text u-text-default u-text-17">
+          <li>
+            <span style="font-weight: 700; font-size: 1.25rem;"></span>
+            <span style="font-size: 1.25rem;">Compute the total accuracy</span>
+          </li>
+          <li>
+            <span style="font-size: 1.25rem;">Plot the confusion matrix to see the differences</span>
+          </li>
+        </ul><span class="u-file-icon u-icon u-icon-7"><img src="images/5152399.png" alt=""></span><span class="u-file-icon u-icon u-icon-8"><img src="images/3179238.png" alt=""></span>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-1-light-3 u-section-9" id="sec-e8ea">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-0 u-layout-wrap u-palette-1-light-3 u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-white u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">RESULTS</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-section-10" id="sec-c837">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-1"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-2"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-3"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-4"></div>
+        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-vertical u-line-5"></div>
+        <p class="u-align-center u-large-text u-text u-text-default u-text-variant u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">MULTICLASS APPROACH</p>
+        <p class="u-align-center u-large-text u-text u-text-default u-text-variant u-text-2" data-animation-name="customAnimationIn" data-animation-duration="1000">BINARY APPROACH</p>
+        <h4 class="u-align-center u-text u-text-default u-text-3">Train and validation set results</h4>
+        <img class="u-image u-image-default u-preserve-proportions u-image-1" src="images/epochs_binary.jpeg" alt="" data-image-width="506" data-image-height="639">
+        <img class="u-image u-image-default u-image-2" src="images/epochs_multiclass.jpeg" alt="" data-image-width="507" data-image-height="630">
+        <h4 class="u-align-center u-text u-text-default u-text-4">Test set results</h4>
+        <img class="u-image u-image-default u-preserve-proportions u-image-3" src="images/test_accuracy_multiclass_approach.jpeg" alt="" data-image-width="370" data-image-height="302">
+        <img class="u-image u-image-default u-preserve-proportions u-image-4" src="images/test_accuracy_binary_approach.jpeg" alt="" data-image-width="375" data-image-height="297">
+        <p class="u-align-center u-text u-text-default u-text-5">Test accuracy = 0.627&nbsp;</p>
+        <p class="u-align-center u-text u-text-default u-text-6">Test accuracy = 0.863&nbsp;</p>
+        <h4 class="u-align-center u-text u-text-default u-text-7">Full dataset results</h4>
+        <img class="u-image u-image-default u-preserve-proportions u-image-5" src="images/full_dataset_acc_multiclass_approach.jpeg" alt="" data-image-width="473" data-image-height="373">
+        <img class="u-image u-image-default u-preserve-proportions u-image-6" src="images/full_dataset_acc_binary_approach.jpeg" alt="" data-image-width="474" data-image-height="374">
+        <p class="u-align-center u-text u-text-default u-text-8">Full dataset accuracy = 0.639&nbsp;</p>
+        <p class="u-align-center u-text u-text-default u-text-9">Full dataset accuracy = 0.898&nbsp;</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-0c08">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-0 u-layout-wrap u-palette-1-light-3 u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-layout-cell u-size-60 u-white u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
+                  <h2 class="u-custom-font u-font-montserrat u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1000">CONCLUSIONS</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-section-12" id="sec-5a71">
+      <div class="u-align-left u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <ul class="u-custom-list u-text u-text-1">
+          <li>
+            <div class="u-list-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-1296"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+            </div>
+            <span style="font-size: 1.875rem;">
+              <span style="font-weight: 700;">Many of the concepts presented in the course have been put into practice</span> such as the Python libraries for data science, data scraping, statistics, data visualization, deep learning ...
+            </span>
+          </li>
+          <li>
+            <div class="u-list-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-1296"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+            </div>
+            <span style="font-size: 1.875rem;">It has been possible to develop a <span style="font-weight: 700;">deep learning model</span> based on Convolutional Neural Networks that <span style="font-weight: 700;">is able to classify wave images by their energy.</span>
+              <br>
+            </span>
+          </li>
+          <li>
+            <div class="u-list-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24" id="svg-1296"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path><path d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+            </div>
+            <span style="font-size: 1.875rem;"> Within expectations, both <span style="font-weight: 700;">multi-class and binary approach</span>&nbsp;have shown <span style="font-weight: 700;">good results</span>, almost <span style="font-weight: 700;">0.64</span> and <span style="font-weight: 700;">0.90</span>
+              <span style="font-weight: 700;">full dataset accuracies</span>, respectively.
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-47aa"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Author: Albert Gallego Jiménez<br>Introduction to Data Science and Machine Learning Postgraduate Degree<br>Course 2021-2022
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>
